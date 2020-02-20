@@ -3,6 +3,6 @@ services:
   taskana-release-script:
     image: taskana-release-script
     build: image
-    command: v2.0.0 master
+    command: ${first} ${second}
     volumes:
       - ${PWD}:/git/repo
