@@ -1,8 +1,0 @@
-Tickets between v2.0.0 and master:
-
-Release notes:
-
-jira filter:
-ID in ( TSK- )
-URL:
-https://taskana.atlassian.net/browse/TSK-?jql=ID in ( TSK- )
