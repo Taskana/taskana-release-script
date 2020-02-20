@@ -1,0 +1,8 @@
+version: "3.7"
+services:
+  taskana-release-script:
+    image: taskana-release-script
+    build: .
+    command: v2.0.0 master
+    volumes:
+      - ${PWD}:/git/repo
