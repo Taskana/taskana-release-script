@@ -1,6 +1,6 @@
 #!/bin/bash
 
-tickets=( `git log --pretty=oneline "$2"..."$3" | grep "$1-" | sed s/.*$1/$1/ | cut -d ' ' -f 1 | sort -u | cut -c$(( ${#1} + 2 ))-9 | sort -n` )
+tickets=( `git log --pretty=oneline "$2"..."$3" | egrep -o "$1-[[:digit:]]+" | cut -c$(( ${#1} + 2 ))- | sort -un` )
 
 echo "Tickets between $2 and $3:"
 
