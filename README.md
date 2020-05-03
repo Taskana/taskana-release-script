@@ -8,7 +8,7 @@ This script will
 - generate jira filter to see all tickets. This can be used to perform bulk operations with those tickets.
 
 
-Usage: `./release.sh <ticket prefix> <tag|commit id> [tag|commit id]`
+Usage: `./release.sh <ticket prefix list seperated via ' '> <tag|commit id> [tag|commit id]`
 
 ### Docker (& docker-compose)
 
