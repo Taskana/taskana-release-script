@@ -1,8 +1,9 @@
 #!/bin/bash
 
 tickets=()
+
 for i in $1; do
-  temp_tickets+=( `git log --pretty=oneline "$2"..."$3" | egrep -o "$i-[[:digit:]]+" | cut -c$(( ${#i} + 2 ))- | sort -un` )
+  temp_tickets=( `git log --pretty=oneline "$2"..."$3" | egrep -o "$i-[[:digit:]]+" | cut -f2 -d "-" | sort -un` )
   tickets+=( ${temp_tickets[@]/#/$i-} )
 done
 
