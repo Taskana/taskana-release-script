@@ -25,4 +25,5 @@ echo ""
 echo "jira filter:"
 echo $filter
 echo "URL:"
+filter=$(echo "$filter" | sed 's/ /%20/g; s/,/%2C/g')
 echo "https://taskana.atlassian.net/issues/?jql=$filter"
