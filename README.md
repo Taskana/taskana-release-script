@@ -4,7 +4,7 @@ This repo contains a release util script which helps detecting all tickets done 
 
 This script will 
 - print all ticket numbers (<prefix>-XXX)
-- generate release notes. Fomrat [<prefix>-XXX]: <ticket description from jira>
+- generate release notes. Format [<prefix>-XXX]: <ticket description from jira>
 - generate jira filter to see all tickets. This can be used to perform bulk operations with those tickets.
 
 
