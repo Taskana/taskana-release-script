@@ -3,7 +3,7 @@
 tickets=()
 
 for i in $1; do
-  temp_tickets=( $(git log --pretty=oneline "$2"..."$3" | grep -E -o "$i-[[:digit:]]+" | cut -f2 -d "-" | sort -un) )
+  mapfile -t temp_tickets < <(git log --pretty=oneline "$2"..."$3" | grep -E -o "$i-[[:digit:]]+" | cut -f2 -d "-" | sort -un)
   tickets+=( "${temp_tickets[@]/#/$i-}" )
 done
 
@@ -16,11 +16,11 @@ done
 echo ""
 echo "**Complete list of features and fixes**"
 
-for i in "${tickets[@]}"; do
-  echo "* [$i](https://taskana.atlassian.net/browse/$i): $(curl -s https://taskana.atlassian.net/rest/api/3/issue/"$i" | jq -r '.fields .summary')"
-done
+#for i in "${tickets[@]}"; do
+  #echo "* [$i](https://taskana.atlassian.net/browse/$i): $(curl -s https://taskana.atlassian.net/rest/api/3/issue/"$i" | jq -r '.fields .summary')"
+#done
 
-filter="ID in ( $( echo "${tickets[@]/%/,}" | sed 's/,$//') )"
+filter="ID in ( $( temp="${tickets[*]/%/,}"; echo "${temp/%,/}" ) )"
 echo ""
 echo "jira filter:"
 echo "$filter"
