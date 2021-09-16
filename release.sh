@@ -16,9 +16,9 @@ done
 echo ""
 echo "**Complete list of features and fixes**"
 
-#for i in "${tickets[@]}"; do
-  #echo "* [$i](https://taskana.atlassian.net/browse/$i): $(curl -s https://taskana.atlassian.net/rest/api/3/issue/"$i" | jq -r '.fields .summary')"
-#done
+for i in "${tickets[@]}"; do
+  echo "* [$i](https://taskana.atlassian.net/browse/$i): $(curl -s https://taskana.atlassian.net/rest/api/3/issue/"$i" | jq -r '.fields .summary')"
+done
 
 filter="ID in ( $( temp="${tickets[*]/%/,}"; echo "${temp/%,/}" ) )"
 echo ""
